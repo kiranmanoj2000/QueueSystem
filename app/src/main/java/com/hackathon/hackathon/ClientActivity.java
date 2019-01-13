@@ -25,7 +25,7 @@ public class ClientActivity extends AppCompatActivity {
         setContentView(R.layout.activity_client);
 
 
-        FirebaseDatabase.getInstance().getReference("User2").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("CurrentQueue").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 long number = (long)dataSnapshot.getValue();
