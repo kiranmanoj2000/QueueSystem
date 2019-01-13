@@ -3,18 +3,21 @@ package com.hackathon.hackathon;
 import android.app.job.JobParameters;
 import android.app.job.JobService;
 
-public class JobSchedulerService extends JobService {
+import com.google.firebase.database.FirebaseDatabase;
 
+public class JobSchedulerService extends JobService {
     private boolean jobWorking = false;
     public boolean jobCancel = false;
 
     @Override
     public boolean onStartJob(JobParameters parameters){
         jobWorking = true;
+
+        FirebaseDatabase.getInstance().getReference("Background").setValue("YEEEET");
+
+
         // job logic
-
         return jobWorking;
-
     }
 
     @Override
