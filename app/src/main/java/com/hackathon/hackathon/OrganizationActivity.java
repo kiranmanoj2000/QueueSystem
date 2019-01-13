@@ -24,7 +24,7 @@ import java.util.TimerTask;
 
 public class OrganizationActivity extends AppCompatActivity {
 
-    int lineNum = 0;
+    int lineNum = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
