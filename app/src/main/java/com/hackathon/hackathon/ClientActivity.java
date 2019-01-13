@@ -63,7 +63,7 @@ public class ClientActivity extends AppCompatActivity {
 
 
 
-        //checkInBackground();
+        checkInBackground();
     }
 
     // method to schedule job to check if it is the customers turn in line
@@ -77,7 +77,7 @@ public class ClientActivity extends AppCompatActivity {
         ComponentName service = new ComponentName(this, JobSchedulerService.class);
         // creating the info of the job with specific guidlines
         // checks for updates every 10 seconds, for a max of 5 hours
-        JobInfo inf = new JobInfo.Builder(2, service).setExtras(isTurn).build();
+        JobInfo inf = new JobInfo.Builder(2, service).setExtras(isTurn).setMinimumLatency(1000).build();
         scheduler.schedule(inf);
     }
 
