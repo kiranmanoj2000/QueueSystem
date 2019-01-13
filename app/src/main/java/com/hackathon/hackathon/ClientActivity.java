@@ -133,7 +133,7 @@ public class ClientActivity extends AppCompatActivity {
         public void calculateTimeEst(View view){
 
             final int currentInLine = 0;
-            FirebaseDatabase.getInstance().getReference("CurrentQueueInLine").addListenerForSingleValueEvent(new ValueEventListener() {
+            FirebaseDatabase.getInstance().getReference("CurrentQueueInLine").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     int currentInLine  = (int)dataSnapshot.getValue();
