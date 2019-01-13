@@ -33,8 +33,7 @@ public class OrganizationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_organization);
 
-         FirebaseDatabase.getInstance().getReference("CurrentQueueInLine").setValue(0);
-         FirebaseDatabase.getInstance().getReference("CurrentQueueSize").setValue(0);
+
 
 
         // when the current queue changes update the UI

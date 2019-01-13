@@ -3,8 +3,12 @@ package com.hackathon.hackathon;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.job.JobInfo;
 import android.app.job.JobParameters;
+import android.app.job.JobScheduler;
 import android.app.job.JobService;
+import android.content.ComponentName;
+import android.content.Context;
 import android.os.Process;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
@@ -18,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 public class JobSchedulerService extends JobService {
     private boolean jobWorking = false;
     public boolean jobCancel = false;
-
+    private boolean notified = false;
     @Override
     public boolean onStartJob(final JobParameters parameters){
         jobWorking = true;
@@ -55,27 +59,27 @@ public class JobSchedulerService extends JobService {
                 android.os.Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
 
                     // event listener for the database
-                    //FirebaseDatabase.getInstance().getReference("CurrentQueueInLine").addValueEventListener(new ValueEventListener() {
-                      //  @Override
-                        //public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    FirebaseDatabase.getInstance().getReference("CurrentQueueInLine").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             // it is their turn
-                        //    if((long)dataSnapshot.getValue() == parameters.getExtras().getLong("clientID")){
-                          //      notifyClient();
-                            //}
+                            if((long)dataSnapshot.getValue() == parameters.getExtras().getLong("clientID")){
+                                notifyClient();
+                            }
 
 
                         }
 
-                 //       @Override
-                   //     public void onCancelled(@NonNull DatabaseError databaseError) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                     //   }
-     //           });
-
-
+                        }
+                });
 
 
-     //       }
+
+
+            }
 
 
         }).start();
@@ -90,9 +94,12 @@ public class JobSchedulerService extends JobService {
                     .setSmallIcon(R.drawable.ic_launcher_foreground).setContentTitle("Your Seat is Ready!").setContentText("Come On In!")
                     .setChannelId("Channel_1").build();
             notifyManager.notify((int) (Math.random()*1001), notify);
+            notified = true;
         }catch (Exception error){
             error.printStackTrace();
         }
     }
+
+
 }
 
