@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.EditText;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Timer;
@@ -18,9 +19,11 @@ public class OrganizationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_organization);
          final EditText test = (EditText)findViewById(R.id.test);
 
+
+
          FirebaseDatabase.getInstance().getReference("User1").setValue(1);
          FirebaseDatabase.getInstance().getReference("User2").setValue(2);
-        FirebaseDatabase.getInstance().getReference("User3").setValue(3);
+         FirebaseDatabase.getInstance().getReference("User3").setValue(3);
 
 
         Timer time =new Timer();
