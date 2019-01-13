@@ -120,6 +120,8 @@ public class OrganizationActivity extends AppCompatActivity {
 
     // for closing up shop
     public void closeQueueing(View view){
+        lineNum = 0;
+        queueSize = 0;
         FirebaseDatabase.getInstance().getReference("CurrentQueueInLine").setValue(0);
         FirebaseDatabase.getInstance().getReference("CurrentQueueSize").setValue(0);
 

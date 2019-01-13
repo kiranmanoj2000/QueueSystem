@@ -130,4 +130,24 @@ public class ClientActivity extends AppCompatActivity {
         }
         }
 
+        public void calculateTimeEst(View view){
+
+            final int currentInLine = 0;
+            FirebaseDatabase.getInstance().getReference("CurrentQueueInLine").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    int currentInLine  = (int)dataSnapshot.getValue();
+                    TextView timeUntil = (TextView)findViewById(R.id.timeEstimate);
+                    timeUntil.setText(""+(clientID-currentInLine)*10);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+
+        }
+
 }
