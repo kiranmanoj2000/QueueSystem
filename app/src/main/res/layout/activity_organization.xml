@@ -10,9 +10,8 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginLeft="124dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginTop="140dp"
         android:onClick="moveToNextInLine"
         android:text="Customer Left"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,9 +21,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginTop="272dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="300dp"
         android:text="TextView"
         android:textSize="70dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,8 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="204dp"
+        android:layout_marginTop="228dp"
         android:text="Current Customer:"
         android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,9 +43,8 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginLeft="136dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginStart="236dp"
+        android:layout_marginTop="60dp"
         android:onClick="closeQueueing"
         android:text="Close Up"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,5 +71,28 @@
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@android:color/black"
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="15dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/view"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            tools:layout_editor_absoluteX="15dp"
+            tools:layout_editor_absoluteY="15dp" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
