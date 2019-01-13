@@ -47,10 +47,7 @@ public class ClientActivity extends AppCompatActivity {
                 displayNum.setText(String.valueOf(clientID));
                 // increase the size of the queue
                 FirebaseDatabase.getInstance().getReference("CurrentQueueSize").setValue(clientID);
-<<<<<<< HEAD
 
-=======
->>>>>>> 2eb0a196c2aaae237edb8de5e2f842ad0eacda6e
             }
 
             @Override
@@ -91,11 +88,8 @@ public class ClientActivity extends AppCompatActivity {
         ComponentName service = new ComponentName(this, JobSchedulerService.class);
         // creating the info of the job with specific guidlines
         // checks for updates every 10 seconds, for a max of 5 hours
-<<<<<<< HEAD
-        JobInfo inf = new JobInfo.Builder(2, service).setExtras(isTurn).setMinimumLatency(10000).build();
-=======
+
         JobInfo inf = new JobInfo.Builder(2, service).setExtras(isTurn).setMinimumLatency(1000).build();
->>>>>>> 2eb0a196c2aaae237edb8de5e2f842ad0eacda6e
         scheduler.schedule(inf);
     }
 

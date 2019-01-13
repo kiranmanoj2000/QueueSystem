@@ -59,33 +59,26 @@ public class JobSchedulerService extends JobService {
                 android.os.Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
 
                     // event listener for the database
-                    //FirebaseDatabase.getInstance().getReference("CurrentQueueInLine").addValueEventListener(new ValueEventListener() {
-                      //  @Override
-                        //public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    FirebaseDatabase.getInstance().getReference("CurrentQueueInLine").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             // it is their turn
-                        //    if((long)dataSnapshot.getValue() == parameters.getExtras().getLong("clientID")){
-                          //      notifyClient();
-                            //}
+                            if((long)dataSnapshot.getValue() == parameters.getExtras().getLong("clientID")){
+                                notifyClient();
+                            }
 
 
                         }
 
-                 //       @Override
-                   //     public void onCancelled(@NonNull DatabaseError databaseError) {
+                       @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                     //   }
-     //           });
-
-<<<<<<< HEAD
                         }
                 });
 
-=======
->>>>>>> 2eb0a196c2aaae237edb8de5e2f842ad0eacda6e
 
 
-
-     //       }
+            }
 
 
         }).start();
