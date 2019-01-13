@@ -30,6 +30,7 @@ public class ClientActivity extends AppCompatActivity {
 
     private boolean hasSignedIn = false;
     private long clientID = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,11 +116,11 @@ public class ClientActivity extends AppCompatActivity {
         if(!hasSignedIn){
             IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
             if(result != null) {
-                if (result.getContents() == null) {
-                    Toast.makeText(this, "Scan Failed", Toast.LENGTH_LONG).show();
+                if (result.getContents() == null||!result.getContents().equals(WelcomActivity.code+"")) {
+                    Toast.makeText(this, "Scan Failed/Wrong Code", Toast.LENGTH_LONG).show();
                 } else {
                     hasSignedIn = true;
-                    Toast.makeText(this, "Scan Successful!" +result.getContents(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Scan Successful!   " +result.getContents(), Toast.LENGTH_LONG).show();
                     FireBaseListener();
                     checkInBackground();
                 }

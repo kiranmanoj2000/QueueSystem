@@ -43,15 +43,14 @@ public class OrganizationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_organization);
+        // code for QR code
 
 
-        // Responsible for generating the QR Code
-        String text2Qr = "Hello";
         image = (ImageView) findViewById(R.id.image);
 
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
-            BitMatrix bitMatrix = multiFormatWriter.encode(text2Qr, BarcodeFormat.QR_CODE, 200, 200);
+            BitMatrix bitMatrix = multiFormatWriter.encode(""+WelcomActivity.code, BarcodeFormat.QR_CODE, 200, 200);
             BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
             Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
             image.setImageBitmap(bitmap);

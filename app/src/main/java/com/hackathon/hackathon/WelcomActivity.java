@@ -8,6 +8,7 @@ import android.view.View;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class WelcomActivity extends AppCompatActivity {
+    public static final int code = (int)(Math.random()*10000010);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +16,7 @@ public class WelcomActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcom);
         FirebaseDatabase.getInstance().getReference("CurrentQueueInLine").setValue(0);
         FirebaseDatabase.getInstance().getReference("CurrentQueueSize").setValue(0);
+
     }
 
     // method to move to organization screen
