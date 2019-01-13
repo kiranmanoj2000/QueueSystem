@@ -63,7 +63,7 @@ public class JobSchedulerService extends JobService {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             // it is their turn
-                            if((long)(dataSnapshot.getValue())+1 == parameters.getExtras().getLong("clientID")){
+                            if((long)(dataSnapshot.getValue()) == parameters.getExtras().getLong("clientID")){
                                 notifyClient();
                             }
 

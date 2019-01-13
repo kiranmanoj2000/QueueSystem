@@ -29,7 +29,7 @@ import com.google.zxing.integration.android.IntentResult;
 public class ClientActivity extends AppCompatActivity {
 
     private boolean hasSignedIn = false;
-    private long clientID = 0;
+    private long clientID = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,7 +107,6 @@ public class ClientActivity extends AppCompatActivity {
             integrator.setBarcodeImageEnabled(false);
             integrator.initiateScan();
         }
-
     }
 
     @Override
@@ -123,7 +122,6 @@ public class ClientActivity extends AppCompatActivity {
                     Toast.makeText(this, "Scan Successful!" +result.getContents(), Toast.LENGTH_LONG).show();
                     FireBaseListener();
                     checkInBackground();
-
                 }
             } else {
                 super.onActivityResult(requestCode, resultCode, data);
