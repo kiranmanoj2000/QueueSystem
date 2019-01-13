@@ -12,15 +12,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WelcomActivity">
+        <activity android:name=".WelcomActivity"
+            android:screenOrientation="portrait">
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OrganizationActivity" />
-        <activity android:name=".ClientActivity"></activity>
+        <activity android:name=".OrganizationActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".ClientActivity"
+            android:screenOrientation="portrait">
+            >
+        </activity>
         <service
             android:name=".JobSchedulerService"
             android:exported="true"

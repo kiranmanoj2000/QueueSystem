@@ -41,7 +41,7 @@ public class OrganizationActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 long number = (long)dataSnapshot.getValue();
-                // if the number is zero
+                // if the queue is empty
                 if(number==0){
                     TextView displayNum = (TextView)findViewById(R.id.textView);
                     displayNum.setText("No More Customers");
@@ -81,7 +81,14 @@ public class OrganizationActivity extends AppCompatActivity {
     public void moveToNextInLine(View view) {
         ++lineNum;
         ++queueSize;
-        FirebaseDatabase.getInstance().getReference("CurrentQueueInLine").setValue(lineNum);
+        // only move move to the next client if they queue allows
+        if(lineNum<=queueSize && lineNum!=2){
+            FirebaseDatabase.getInstance().getReference("CurrentQueueInLine").setValue(lineNum);
+
+        }else{
+            FirebaseDatabase.getInstance().getReference("CurrentQueueInLine").setValue(lineNum-1);
+
+        }
         // increase the size
 
     }
@@ -89,6 +96,7 @@ public class OrganizationActivity extends AppCompatActivity {
     // for closing up shop
     public void closeQueueing(View view){
         FirebaseDatabase.getInstance().getReference("CurrentQueueInLine").setValue(0);
+        FirebaseDatabase.getInstance().getReference("CurrentQueueSize").setValue(0);
 
     }
 
