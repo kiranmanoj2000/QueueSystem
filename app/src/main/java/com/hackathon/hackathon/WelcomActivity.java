@@ -8,7 +8,7 @@ import android.view.View;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class WelcomActivity extends AppCompatActivity {
-    public static final int code = (int)(Math.random()*10000010);
+    public static final int code = 123456789;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
