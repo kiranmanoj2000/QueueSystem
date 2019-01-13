@@ -36,7 +36,7 @@ public class OrganizationActivity extends AppCompatActivity {
          tests.add("Hello");
          tests.add("arrau");
          tests.add("stack");
-         FirebaseDatabase.getInstance().getReference("CurrentQueue").setValue(1);
+         FirebaseDatabase.getInstance().getReference("CurrentQueueInLine").setValue(1);
          FirebaseDatabase.getInstance().getReference("User2").setValue(2);
          FirebaseDatabase.getInstance().getReference("User3").setValue(3);
          FirebaseDatabase.getInstance().getReference("User4").setValue(tests);
