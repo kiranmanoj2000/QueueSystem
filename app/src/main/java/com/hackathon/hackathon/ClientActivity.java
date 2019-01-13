@@ -37,6 +37,8 @@ public class ClientActivity extends AppCompatActivity {
                  clientID= (long)(dataSnapshot.getValue())+1;
                 TextView displayNum = (TextView)findViewById(R.id.textView);
                 displayNum.setText(String.valueOf(clientID));
+                // increase the size of the queue
+                FirebaseDatabase.getInstance().getReference("CurrentQueueSize").setValue(clientID);
             }
 
             @Override
@@ -61,7 +63,7 @@ public class ClientActivity extends AppCompatActivity {
 
 
 
-        checkInBackground();
+        //checkInBackground();
     }
 
     // method to schedule job to check if it is the customers turn in line
@@ -75,8 +77,8 @@ public class ClientActivity extends AppCompatActivity {
         ComponentName service = new ComponentName(this, JobSchedulerService.class);
         // creating the info of the job with specific guidlines
         // checks for updates every 10 seconds, for a max of 5 hours
-        JobInfo inf = new JobInfo.Builder(2, service).setExtras(isTurn).setPeriodic(2000).build();
-       // scheduler.schedule(inf);
+        JobInfo inf = new JobInfo.Builder(2, service).setExtras(isTurn).build();
+        scheduler.schedule(inf);
     }
 
 

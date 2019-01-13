@@ -33,25 +33,6 @@ public class OrganizationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_organization);
 
-
-         final EditText test = (EditText)findViewById(R.id.test);
-
-         ArrayList<String> tests = new ArrayList<>();
-         tests.add("Hello");
-         tests.add("arrau");
-         tests.add("stack");
-         FirebaseDatabase.getInstance().getReference("CurrentQueueInLine").setValue(1);
-         FirebaseDatabase.getInstance().getReference("User2").setValue(2);
-         FirebaseDatabase.getInstance().getReference("User3").setValue(3);
-         FirebaseDatabase.getInstance().getReference("User4").setValue(tests);
-         JobScheduler scheduler = (JobScheduler) this.getSystemService(Context.JOB_SCHEDULER_SERVICE);
-
-         ComponentName service = new ComponentName(this, JobSchedulerService.class);
-         JobInfo inf = new JobInfo.Builder(2, service).setMinimumLatency(1000).build();
-         scheduler.schedule(inf);
-
-        FirebaseDatabase.getInstance().getReference("CurrentQueue").addValueEventListener(new ValueEventListener() {
-
          FirebaseDatabase.getInstance().getReference("CurrentQueueInLine").setValue(0);
          FirebaseDatabase.getInstance().getReference("CurrentQueueSize").setValue(0);
 
