@@ -13,7 +13,7 @@
         android:layout_marginStart="148dp"
         android:layout_marginLeft="148dp"
         android:layout_marginTop="184dp"
-        android:text="TextView"
+        android:text=""
         android:textSize="70dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,6 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+<<<<<<< HEAD
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -47,5 +48,17 @@
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+=======
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="432dp"
+        android:onClick="openCamera"
+        android:text="SCAN QR CODE"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+>>>>>>> 2eb0a196c2aaae237edb8de5e2f842ad0eacda6e
 
 </android.support.constraint.ConstraintLayout>
