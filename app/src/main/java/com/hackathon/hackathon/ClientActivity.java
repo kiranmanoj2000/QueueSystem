@@ -1,6 +1,7 @@
 package com.hackathon.hackathon;
 
 import android.content.Intent;
+<<<<<<< HEAD
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -43,10 +44,19 @@ public class ClientActivity extends AppCompatActivity {
 
     private TextView mValueView;
 
+=======
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+
+public class ClientActivity extends AppCompatActivity {
+
+>>>>>>> parent of c2d47be... QR code related
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client);
+<<<<<<< HEAD
 
         surfaceView=(SurfaceView)findViewById(R.id.camerapreview);
         textView=(TextView)findViewById(R.id.textView);
@@ -110,6 +120,9 @@ public class ClientActivity extends AppCompatActivity {
 
 
 
+=======
+    }
+>>>>>>> parent of c2d47be... QR code related
 
 
         FirebaseDatabase.getInstance().getReference("CurrentQueue").addValueEventListener(new ValueEventListener() {
@@ -123,9 +136,12 @@ public class ClientActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+<<<<<<< HEAD
             }
         });
 
     }
 
+=======
+>>>>>>> parent of c2d47be... QR code related
 }
