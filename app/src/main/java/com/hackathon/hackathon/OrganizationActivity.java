@@ -66,9 +66,10 @@ public class OrganizationActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 long number = (long)dataSnapshot.getValue();
                 // if the queue is empty
+
                 if(number==0){
                     TextView displayNum = (TextView)findViewById(R.id.textView);
-                    displayNum.setText("No More Customers");
+                    displayNum.setText("0");
                 }else{
                     TextView displayNum = (TextView)findViewById(R.id.textView);
                     displayNum.setText(String.valueOf(number));
