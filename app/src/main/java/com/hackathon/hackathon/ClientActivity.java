@@ -71,6 +71,7 @@ public class ClientActivity extends AppCompatActivity {
                 long number = (long)dataSnapshot.getValue();
                 TextView displayCurrentlyCalling = (TextView)findViewById(R.id.clientLineNum);
                 displayCurrentlyCalling.setText(number+"");
+                calculateTimeEst(getWindow().getDecorView().findViewById(android.R.id.content));
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
